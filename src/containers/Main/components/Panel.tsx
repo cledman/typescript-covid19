@@ -26,8 +26,10 @@ interface Country{
     label:string,
     value:string,
 }
-
-    const navigatorHasShare = navigator.share;
+    let hasShare=false;
+    if (navigator.share === null){
+        hasShare=false;
+    }
 
 
 
@@ -41,6 +43,36 @@ interface Country{
                     <img src={country.flag} alt="flag"/>
                 </ItemStyled>
             </MenuItem>
+    )
+
+    const textCovid19 = `País: ${country} - recuperados: ${recovered}`;
+
+    const copyInfo = () =>{
+        navigator.clipboard.writeText(textCovid19);
+    }
+
+    const shareInfo = () =>{
+        navigator.share({
+            title: `Dados do Covid 19 - ${country}`,
+            text:   textCovid19,
+            url: 'https://...'
+        })
+    }
+
+    const renderShareButton = (
+        <div>
+            <Button variant="contained" color="primary" onClick={shareInfo}>
+                Compartilhar
+            </Button>
+        </div>
+    )
+
+    const renderCopyButton = (
+        <div>
+            <Button variant="contained" color="primary" onClick={copyInfo}>
+                Copiar
+            </Button>
+        </div>
     )
 
     return (
@@ -58,6 +90,7 @@ interface Country{
                         </Select>
                     </div>
                 </div>
+                {hasShare ? renderShareButton : renderCopyButton} 
             </CardPanelContentStyled>
         </Card>
     )
