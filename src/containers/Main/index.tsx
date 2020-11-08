@@ -1,6 +1,7 @@
 import React , {memo, useCallback, useEffect, useState} from 'react';
 import Api from '../../api';
 import Board from './components/Board'
+import Panel from './components/Panel';
 import {ContainerStyled} from './style';
 
 
@@ -12,6 +13,7 @@ interface Country{
 function Main() {
     const [data, setData] = useState({});
     const [country, setCountry] = useState('brazil');
+    const updatedAt = new Date().toLocaleString();
 
     const getCovidData = useCallback((country)=>{
         Api.getCountry(country)
@@ -22,9 +24,23 @@ function Main() {
       getCovidData(country)
     },[getCovidData,country])
 
+    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+        const country = e.target.value;
+        setCountry(country);
+      }
+
+    
     return(
         <ContainerStyled>
             <div className="mb-2">
+                <Panel 
+                   data={data} 
+                   updatedAt={updatedAt}
+                   onChange={handleChange}
+                   country={country}
+                   getCovidData={getCovidData}
+                />
             </div>
             <Board data={data} />
         </ContainerStyled>

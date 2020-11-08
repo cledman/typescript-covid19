@@ -21,6 +21,18 @@ interface Data {
                 <Grid item xs={12} md={3} >
                     <Card value={getValue(cases ? cases:0)} label="total de casos" color="#5d78ff" />               
                 </Grid>
+                <Grid item xs={12} md={3} >
+                    <Card value={getValue(todayDeaths ? todayDeaths:0)} label="Óbitos hoje" color="#f7bb29" />               
+                </Grid>                
+                <Grid item xs={12} md={3} >
+                    <Card value={getValue(todayCases ? todayCases:0)} label="Casos hoje" color="#000" />               
+                </Grid>                    
+                <Grid item xs={12} md={3} >
+                    <Card value={getValue(deaths ? deaths:0)} label="Total de mortos" color="#e95878" />               
+                </Grid>                    
+                <Grid item xs={12} md={3} >
+                    <Card value={getValue(recovered ? recovered:0)} label="Total de recuperados" color="#67c887" />               
+                </Grid>                                    
             </Grid>
         ) 
     }
