@@ -5,10 +5,6 @@ import Panel from './components/Panel';
 import {ContainerStyled} from './style';
 
 
-interface Country{
-    country:String;
-}
-
 
 function Main() {
     const [data, setData] = useState({});

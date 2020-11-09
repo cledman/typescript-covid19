@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { getByDisplayValue } from '@testing-library/react';
+import React from 'react';
+//import { getByDisplayValue } from '@testing-library/react';
 import {Grid, Skeleton} from '../../../components';
 import Card from './Card';
 
