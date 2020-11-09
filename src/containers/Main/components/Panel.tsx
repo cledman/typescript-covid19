@@ -27,7 +27,7 @@ interface Country{
 
     function Panel({updatedAt, data, onChange, country,getCovidData} : { updatedAt: string, data:Data, onChange:any, country:string, getCovidData:any}){  
     
-    const {recovered} = data;
+    const {recovered, cases, todayDeaths, deaths,todayCases} = data;
     const renderCountries = (country:Country, index:Number) =>(
             <MenuItem key={`country-${index}`} value={country.value}>
                 <ItemStyled>
@@ -37,7 +37,7 @@ interface Country{
             </MenuItem>
     )
 
-    const textCovid19 = `País: ${country} - recuperados: ${recovered}`;
+    const textCovid19 = `País: ${country} - Total de casos: ${cases},  Óbitos hoje: ${deaths},   Casos hoje: ${todayCases},  Total de mortos: ${todayDeaths}, Total de recuperados: ${recovered}  `;
 
     const copyInfo = () =>{
         navigator.clipboard.writeText(textCovid19);
@@ -71,8 +71,8 @@ interface Country{
         <Card>
             <CardPanelContentStyled>
                 <div>
-                    <Typography variant="h5" component="span" color="primary">Covid-19</Typography>
-                    <Typography variant="h6" component="span" color="primary">Painel Coronavirus</Typography>
+                    <Typography variant="h5" component="span" color="primary">Covid-19</Typography><br />
+                    <Typography variant="h6" component="span" color="primary">Painel Coronavirus</Typography><br />
                     <Typography variant="body2" component="span" color="primary">Atualizado em :{updatedAt}</Typography>                                        
                     <div className="pt-2">
                         <Select 

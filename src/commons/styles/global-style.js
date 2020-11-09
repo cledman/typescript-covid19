@@ -5,6 +5,7 @@ const globalStyle = createGlobalStyle `
     *{
         outline:none;
         box-sizing:border-box;
+
     }
 
     body{
@@ -21,9 +22,9 @@ const globalStyle = createGlobalStyle `
 
     #root{
         background:url(${CovidImg});
-        background-size:cover;
+        background-size:cover !important;
         background-position:center center;
-        height:100vh;
+        height:100vh !important;
         width:100vw;
     }
 
