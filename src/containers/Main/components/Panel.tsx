@@ -47,7 +47,7 @@ interface Country{
         navigator.share({
             title: `Dados do Covid 19 - ${country}`,
             text:   textCovid19,
-            url: 'https://...'
+            url: 'https://dio-covid19.netlify.app/'
         })
     }
 
